@@ -92,7 +92,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">apa kata2 buat hari ini , <strong>bebas mau di isi apa aja..</strong></label>
+                <label for="exampleFormControlTextarea1" class="form-label">apa kata2 buat hari ini , <strong class="dua"></strong></label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
             </form>
@@ -123,6 +123,7 @@
     <script>
       gsap.registerPlugin(TextPlugin);
       gsap.to('.quest', { duration: 5, delay: 1, text: 'form || question' });
+      gsap.to('.dua', { duration: 5, delay: 10, text: 'bebas mau di isi apa aja....' });
     </script>
   </body>
 </html>
