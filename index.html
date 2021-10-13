@@ -61,40 +61,53 @@
         <!--in-->
         <div class="row justify-content-center">
           <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>terima kasih!</strong> pesen anda sudah admin terima.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
             <!--inputan-->
-            <form>
+            <form name="form-ziss">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">nama lengkap</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" />
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">pergi kemana?</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="pergiKmn" />
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">sama siapa?</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="samaSiapa" />
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">pulang jam berapa?</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="plgJam" />
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">genit gak?</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="genitGak" />
               </div>
               <br />
               <div><h4>opsional</h4></div>
               <br />
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">kalo pulang tidak sesuai jam pulang ?, berikan alesannya kalo gak ada next aja.</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="alesannya" />
               </div>
 
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">apa kata2 buat hari ini , <strong class="dua"></strong></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="nothing"></textarea>
               </div>
+              <button type="submit" class="btn btn-danger btn-kirim">kirim</button>
+            </button>
+            
+            <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+
             </form>
           </div>
         </div>
@@ -125,5 +138,50 @@
       gsap.to('.quest', { duration: 5, delay: 1, text: 'form || question' });
       gsap.to('.dua', { duration: 5, delay: 10, text: 'bebas mau di isi apa aja....' });
     </script>
+
+    <form name="submit-to-google-sheet">
+      <input name="email" type="email" placeholder="Email" required />
+      <button type="submit">Send</button>
+    </form>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxPaUrVXnDdSLXmlYkfxCZGTN6dXGGaLoqf3o9Fkfal7LTRyS7phQ6PNmsPTOGvpAaS1A/exec';
+      const form = document.forms['form-ziss'];
+      const btnKirim = document.querySelector('.btn-kirim');
+      const btnLoading = document.querySelector('.btn-loading');
+      const myAlert = document.querySelector('.my-alert');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        //ketika sumbit
+        // tampilkan loading. hilangkan kirim
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => {
+            // tampilkan tombol kirim , hilangkan loading
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            //alert 
+            myAlert.classList.toggle('d-none');
+            //reset form
+            form.reset ();
+            console.log('Success!', response)
+          })
+            
+          .catch((error) => console.error('Error!', error.message));
+      });
+    </script>
   </body>
 </html>
+
+<!--
+  timestamp
+nama
+pergiKmn
+plgJam
+genitGak
+alesanTelat
+nothing
+
+-->
