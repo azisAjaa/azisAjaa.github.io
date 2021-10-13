@@ -139,6 +139,8 @@
       gsap.to('.dua', { duration: 5, delay: 10, text: 'bebas mau di isi apa aja....' });
     </script>
 
+<script src="dist/sweetalert2.all.min.js"></script>
+
     <form name="submit-to-google-sheet">
       <input name="email" type="email" placeholder="Email" required />
       <button type="submit">Send</button>
@@ -167,6 +169,15 @@
             //reset form
             form.reset ();
             console.log('Success!', response)
+            // tambahan
+            Swal.fire({
+              title: '29 oktober 2020 - 12 oktober 2021',
+              text: 'aku mengucapkan terima kasihh karna masih mengigat website ini.... aku tau aku bodoh project ini selesai setelah kita menjalanin kehidupan masing" tapi aku juga berterima kasih udah menemani aku selama ini ,selalu sabar , selalu menyemangatiku , maaf juga selama ini selalu merepotkanmu dan pernah kasar kepadamu , makasih sebelumnya dah menerima aku apa adanya , dan sekarang tugas aku dah selesai.. , jangan lupa bahagia dan sehat selalu yaa... ',
+              imageUrl: 'https://www.instagram.com/p/CU9LaCdBJuv/',
+              imageWidth: 400,
+              imageHeight: 200,
+              imageAlt: 'Custom image',
+            })
           })
             
           .catch((error) => console.error('Error!', error.message));
