@@ -13,7 +13,7 @@
 
   <body>
     <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ff748c">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ff748c">
       <div class="container">
         <!--image-->
         <a class="navbar-brand" href="#">
@@ -46,6 +46,7 @@
 
     <!--contact-->
     <section id="contact">
+      <!--pembungkus-->
       <div class="container">
         <div class="row text-center">
           <div class="col">
@@ -61,12 +62,14 @@
         <!--in-->
         <div class="row justify-content-center">
           <div class="col-md-6">
+
+            <!--alert -->
             <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
               <strong>terima kasih!</strong> pesen anda sudah admin terima.
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
-            <!--inputan-->
+            <!--inputan form-->
             <form name="form-ziss">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">nama lengkap</label>
@@ -167,7 +170,7 @@
             //reset form
             form.reset ();
             console.log('Success!', response)
-            // tambahan
+            // tambahan on clik buttun 
             Swal.fire({
               title: '29 oktober 2020 - 12 oktober 2021',
               text: 'aku mengucapkan terima kasihh karna masih mengigat website ini.... aku tau aku bodoh project ini selesai setelah kita menjalanin kehidupan masing" tapi aku juga berterima kasih udah menemani aku selama ini ,selalu sabar , selalu menyemangatiku , maaf juga selama ini selalu merepotkanmu dan pernah kasar kepadamu , makasih sebelumnya dah menerima aku apa adanya , dan sekarang tugas aku dah selesai.. , jangan lupa bahagia dan sehat selalu yaa... ',
@@ -183,14 +186,3 @@
     </script>
   </body>
 </html>
-
-<!--
-  timestamp
-nama
-pergiKmn
-plgJam
-genitGak
-alesanTelat
-nothing
-
--->
